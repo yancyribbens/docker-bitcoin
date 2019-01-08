@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 maintainer yancy ribbens "yancy.ribbens@gmail.com"
 
-RUN apt-get update -qq && apt-get install -y git wget build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 libboost-all-dev libminiupnpc-dev libzmq3-dev python3-pip locales vim python3.6 python3.6-dev uwsgi uwsgi-src uuid-dev libcap-dev libpcre3-dev python-pip python-dev nginx
+RUN apt-get update -qq && apt-get install -y git wget build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 libboost-all-dev
 
 # Checkout bitcoin source
 RUN mkdir /bitcoin-source
@@ -31,4 +31,4 @@ ARG RPC_USER=foo
 ARG RPC_PASSWORD=bar
 RUN mkdir -p ~/.bitcoin
 RUN echo "rpcuser=${RPC_USER}\nrpcpassword=${RPC_PASSWORD}\n${NETWORK}=1\nrpcport=8332\nrpcallowip=127.0.0.1\nrpcconnect=127.0.0.1\n" > /root/.bitcoin/bitcoin.conf
-ENTRYPOINT bitcoind -daemon && service nginx start && uwsgi --ini wsgi.ini
+ENTRYPOINT bitcoind -daemon
