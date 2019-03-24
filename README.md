@@ -2,7 +2,7 @@
 
 # build
 ```
-docker build . -t bitcoin --build-arg NETWORK=mainnet --build-arg RPC_USER=lincoln --build-arg RPC_PASSWORD=password
+docker build . -t bitcoin --build-arg NETWORK=testnet--build-arg RPC_USER=usr --build-arg RPC_PASSWORD=pwd
 ```
 
 # run
