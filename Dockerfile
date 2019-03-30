@@ -49,4 +49,4 @@ RUN rpcuser="rpcuser=${RPC_USER}" && \
     rpcallowip="rpcallowip=127.0.0.1" && \
     rpcconnect="rpcconnect=127.0.0.1" && \
     echo "$rpcuser\n$rpcpassword\n$network\n$rpcport\n$rpcallowip\n$rpcconnect" > /root/.bitcoin/bitcoin.conf
-ENTRYPOINT bitcoind -daemon
+ENTRYPOINT bitcoind -daemon && bash

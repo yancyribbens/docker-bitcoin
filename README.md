@@ -7,5 +7,5 @@ docker build . -t bitcoind --build-arg NETWORK=testnet --build-arg RPC_USER=usr 
 
 # run
 ```
-docker run -it bitcoind bash
+docker run -it bitcoind
 ```
