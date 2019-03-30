@@ -1,7 +1,19 @@
 FROM ubuntu:18.04
 maintainer yancy ribbens "yancy.ribbens@gmail.com"
 
-RUN apt-get update -qq && apt-get install -y git wget build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 libboost-all-dev
+RUN apt-get update -qq && apt-get install -y \
+    git \
+    wget \
+    build-essential \
+    libtool \
+    autotools-dev \
+    automake \
+    pkg-config \
+    libssl-dev \
+    libevent-dev \
+    bsdmainutils \
+    python3 \
+    libboost-all-dev
 
 # Checkout bitcoin source
 RUN mkdir /bitcoin-source
