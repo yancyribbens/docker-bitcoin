@@ -42,5 +42,11 @@ ARG NETWORK=regtest
 ARG RPC_USER=foo
 ARG RPC_PASSWORD=bar
 RUN mkdir -p ~/.bitcoin
-RUN echo "rpcuser=${RPC_USER}\nrpcpassword=${RPC_PASSWORD}\n${NETWORK}=1\nrpcport=8332\nrpcallowip=127.0.0.1\nrpcconnect=127.0.0.1\n" > /root/.bitcoin/bitcoin.conf
+RUN rpcuser="rpcuser=${RPC_USER}" && \
+    rpcpassword="rpcpassword=${RPC_PASSWORD}" && \
+    network="${NETWORK}=1" && \
+    rpcport="rpcport=8332" && \
+    rpcallowip="rpcallowip=127.0.0.1" && \
+    rpcconnect="rpcconnect=127.0.0.1" && \
+    echo "$rpcuser\n$rpcpassword\n$network\n$rpcport\n$rpcallowip\n$rpcconnect" > /root/.bitcoin/bitcoin.conf
 ENTRYPOINT bitcoind -daemon
