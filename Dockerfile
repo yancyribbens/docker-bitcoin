@@ -31,7 +31,7 @@ RUN make install
 
 # install bitcoin 0.16.3
 WORKDIR /bitcoin-source/bitcoin
-RUN git checkout tags/v0.16.3
+RUN git checkout tags/v0.18.1
 RUN ./autogen.sh
 RUN ./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2" LDFLAGS="-L${BDB_PREFIX}/lib/" --without-gui
 RUN make
