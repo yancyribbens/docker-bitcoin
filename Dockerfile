@@ -29,7 +29,7 @@ RUN BDB_PREFIX=$(pwd)/build
 RUN ../dist/configure --disable-shared --enable-cxx --with-pic --prefix=$BDB_PREFIX
 RUN make install
 
-# install bitcoin 0.16.3
+# install bitcoin
 WORKDIR /bitcoin-source/bitcoin
 RUN git checkout tags/v0.18.1
 RUN ./autogen.sh
